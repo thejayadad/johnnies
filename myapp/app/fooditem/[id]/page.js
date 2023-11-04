@@ -1,15 +1,17 @@
 'use client'
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from "react-redux";
+import { addProduct } from '@/redux/cartSlice';
 
 const FoodItem = (ctx) => {
   const [foodDetails, setFoodDetails] = useState(null);
   const [prepStyle, setPrepStyle] = useState('');
   const [price, setPrice] = useState(0);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1); 
   const [size, setSize] = useState(0);
   const [prep, setPrep] = useState([]);
   const [extras, setExtras] = useState([]);
-
+  const dispatch = useDispatch();
 
 
   useEffect(() => {
@@ -47,6 +49,22 @@ const FoodItem = (ctx) => {
       setExtras(extras.filter((extra) => extra._id !== option._id));
     }
   };
+  const handleSize = (sizeIndex) => {
+    const selectedPrice = foodDetails.prices[sizeIndex];
+    setSize(sizeIndex);
+    setPrice(selectedPrice);
+  };
+
+  const handleClick = () => {
+    dispatch(addProduct({...foodDetails, extras, price, quantity}));
+  };
+  const handleQuantityChange = (increment) => {
+    if (increment) {
+      setQuantity(quantity + 1);
+    } else if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
 
 
   return (
@@ -69,8 +87,10 @@ const FoodItem = (ctx) => {
                 <>
                   <div className="mb-4">
                     <h3 className="text-gray-800 text-lg font-semibold">Select Meal Size</h3>
-                    <div className="flex items-center space-x-2">
-
+                    <div className="flex items-center space-x-6">
+                    <button onClick={() => handleSize(0)}>1LB</button>
+                    <button onClick={() => handleSize(1)}>2LB</button>
+                    <button onClick={() => handleSize(2)}>3LB</button>
                     </div>
                   </div>
                   <div>
@@ -93,14 +113,14 @@ const FoodItem = (ctx) => {
                     <h3 className="text-gray-800 text-lg font-semibold">Quantity</h3>
                     <div className="flex items-center space-x-4">
                       <button
-                        onClick={() => handleQuantityChange(false)}
-                        className="bg-gray-500 text-white w-8 h-8 flex items-center justify-center"
+                      onClick={() => handleQuantityChange(false)} 
+                      className="bg-gray-500 text-white w-8 h-8 flex items-center justify-center"
                       >
                         -
                       </button>
                       <span>{quantity}</span>
                       <button
-                        onClick={() => handleQuantityChange(true)}
+                        onClick={() => handleQuantityChange(true)} 
                         className="bg-gray-500 text-white w-8 h-8 flex items-center justify-center"
                       >
                         +
@@ -108,7 +128,9 @@ const FoodItem = (ctx) => {
                     </div>
                   </div>
                   <div className="mt-4">
-                    <button className="bg-gray-500 text-white rounded-md px-4 py-2 hover:bg-indigo-700">
+                    <button 
+                    onClick={handleClick}
+                    className="bg-gray-500 text-white px-4 py-2 hover:bg-gray-700 w-full">
                       Add to Cart
                     </button>
                   </div>

@@ -2,8 +2,10 @@
 import React, { useState } from 'react';
 import { RiShoppingCart2Fill, RiMenuLine, RiCloseLine } from 'react-icons/ri';
 import Link from 'next/link';
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const quantity = useSelector((state) => state.cart.quantity);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -55,6 +57,7 @@ const Navbar = () => {
             )}
           </div>
           <RiShoppingCart2Fill className='h-6 w-6 text-gray-500' />
+          <span>{quantity}</span>
         </div>
       </div>
       <div
