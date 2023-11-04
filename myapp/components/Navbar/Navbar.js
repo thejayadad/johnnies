@@ -20,22 +20,22 @@ const Navbar = () => {
               <span className='text-red-500'>Market</span>
             </span>
           </Link>
-          <div className='hidden md:flex space-x- text-xl space-x-4'>
+          <div className='text-gray-500 text-md tracking-widest title-font hidden md:flex space-x- text-xl space-x-4'>
             <Link href='/menu'>
               <span className='relative group'>
-                Menu
+                MENU
                 <div className='absolute left-0 w-0 h-0 bg-blue-500 group-hover:w-full group-hover:h-1 transition-all duration-300'></div>
               </span>
             </Link>
             <Link href='/about'>
               <span className='relative group'>
-                About
+                ABOUT
                 <div className='absolute left-0 w-0 h-0 bg-blue-500 group-hover:w-full group-hover:h-1 transition-all duration-300'></div>
               </span>
             </Link>
             <Link href='/contact'>
               <span className='relative group'>
-                Contact
+                CONTACT
                 <div className='absolute left-0 w-0 h-0 bg-blue-500 group-hover:w-full group-hover:h-1 transition-all duration-300'></div>
               </span>
             </Link>
