@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import { FaGithub, FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaYoutube, FaTiktok } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -73,16 +73,16 @@ const Footer = () => {
         </ul>
         <div className="pt-8 flex border-t border-gray-200 max-w-xs mx-auto items-center justify-between">
           <a href="#">
-            <FaGithub className="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white text-blue-500" />
+            <FaTiktok className="text-xl transition-colors duration-200 hover:text-gray-800  text-black" />
           </a>
           <a href="#">
-            <FaFacebook className="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white text-blue-500" />
+            <FaFacebook className="text-xl transition-colors duration-200 hover:text-gray-800  text-blue-500" />
           </a>
           <a href="#">
-            <FaTwitter className="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white text-blue-500" />
+            <FaTwitter className="text-xl transition-colors duration-200 hover:text-gray-800 text-blue-200" />
           </a>
           <a href="#">
-            <FaLinkedin className="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white text-blue-500" />
+            <FaYoutube className="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white text-red-500" />
           </a>
         </div>
         <div className="text-center pt-10 sm:pt-12 font-light flex items-center justify-center">
