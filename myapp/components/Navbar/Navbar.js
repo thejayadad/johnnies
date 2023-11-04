@@ -56,8 +56,10 @@ const Navbar = () => {
               />
             )}
           </div>
-          <RiShoppingCart2Fill className='h-6 w-6 text-gray-500' />
+          <Link href={'/cart'}>
           <span>{quantity}</span>
+          <RiShoppingCart2Fill className='h-6 w-6 text-gray-500' />
+          </Link  >
         </div>
       </div>
       <div
