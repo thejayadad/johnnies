@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import Image from 'next/image';
-import hero1 from "../../public/hero1.png";
+import hero1 from '@/public/hero1.png'
 
 const Hero = () => {
   return (
