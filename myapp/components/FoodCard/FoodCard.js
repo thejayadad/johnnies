@@ -10,7 +10,7 @@ const FoodCard = () => {
     
 <div class="p-4 w-full">
   <Link
-    href={'/fooditem/'}
+    href={`/fooditem/`}
     className='block relative h-96 rounded overflow-hidden'
   >
 <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/420x260" />
