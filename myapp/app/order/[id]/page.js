@@ -1,9 +1,15 @@
 'use client'
-
-import Image from "next/image";
+import { FaCheck, FaCreditCard, FaBreadSlice, FaBiking, FaTruck } from 'react-icons/fa';
 
 const Order = () => {
   const status = 0;
+
+  const statusIcon = (index) => {
+    if (index - status < 1) return <FaCreditCard />;
+    if (index - status === 1) return <FaBreadSlice />;
+    if (index - status === 2) return <FaBiking />;
+    if (index - status === 3) return <FaTruck />;
+  };
 
   const statusClass = (index) => {
     if (index - status < 1) return "done";
@@ -12,7 +18,7 @@ const Order = () => {
   };
 
   return (
-    <div className="container flex p-5">
+    <div className="flex p-5 max-w-screen-xl mx-auto">
       <div className="w-2/3 p-5">
         <div className="row">
           <table className="w-full">
@@ -42,73 +48,50 @@ const Order = () => {
             </tbody>
           </table>
         </div>
-        <div className="row">
-          <div className={`flex ${statusClass(0)}`}>
-            <Image src="/img/paid.png" width={30} height={30} alt="" />
+        <div className="flex flex-row justify-between mt-8">
+          <div className={`flex ${statusClass(0)} flex-col items-center`}>
+            {statusIcon(0)}
             <span>Payment</span>
             <div className="checkedIcon hidden">
-              <Image
-                className="checkedIcon"
-                src="/img/checked.png"
-                width={20}
-                height={20}
-                alt=""
-              />
+              <FaCheck />
             </div>
           </div>
-          <div className={`flex ${statusClass(1)}`}>
-            <Image src="/img/bake.png" width={30} height={30} alt="" />
+          <div className={`flex ${statusClass(1)} flex-col items-center`}>
+            {statusIcon(1)}
             <span>Preparing</span>
             <div className="checkedIcon hidden">
-              <Image
-                className="checkedIcon"
-                src="/img/checked.png"
-                width={20} height={20}
-                alt=""
-              />
+              <FaCheck />
             </div>
-          </div>
-          <div className={`flex ${statusClass(2)}`}>
-            <Image src="/img/bike.png" width={30} height={30} alt="" />
+          </div> 
+          <div className={`flex ${statusClass(2)} flex-col items-center`}>
+            {statusIcon(2)}
             <span>On the way</span>
             <div className="checkedIcon hidden">
-              <Image
-                className="checkedIcon"
-                src="/img/checked.png"
-                width={20}
-                height={20}
-                alt=""
-              />
+              <FaCheck />
             </div>
           </div>
-          <div className={`flex ${statusClass(3)}`}>
-            <Image src="/img/delivered.png" width={30} height={30} alt="" />
+          <div className={`flex ${statusClass(3)} flex-col items-center`}>
+            {statusIcon(3)}
             <span>Delivered</span>
             <div className="checkedIcon hidden">
-              <Image
-                className="checkedIcon"
-                src="/img/checked.png"
-                width={20}
-                height={20}
-                alt=""
-              />
+              <FaCheck />
             </div>
           </div>
         </div>
       </div>
       <div className="w-1/3 p-5">
-        <div className="wrapper">
-          <h2 className="text-white text-xl font-semibold">CART TOTAL</h2>
-          <div className="totalText text-white text-sm">
+        <div className="wrapper bg-gray-700 p-6">
+          <h2 className="text-gray-600 text-xl font-semibold">CART TOTAL</h2>
+          <div className="totalText text-gray-600 text-sm">
             <b className="totalTextTitle">Subtotal:</b> $79.60
           </div>
-          <div className="totalText text-white text-sm">
+          <div className="totalText text-gray-600 text-sm">
             <b className="totalTextTitle">Discount:</b> $0.00
           </div>
-          <div className="totalText text-white text-sm">
-            <b className="totalTextTitle">Total:</b> $79.60
+          <div className="totalText text-gray-600 text-sm">
+            <b className="totalTextTitle text-gray-600">Total:</b> $79.60
           </div>
-          <button disabled className="button bg-white text-teal-500 font-bold py-2 mt-4 cursor-not-allowed">
+          <button disabled className="button w-full bg-red-500 text-white font-bold py-2 mt-4">
             PAID
           </button>
         </div>

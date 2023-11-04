@@ -5,7 +5,7 @@ import Image from 'next/image';
 const Cart = () => {
   return (
     <div className="container mx-auto p-5 flex">
-      <div className="flex-2 w-full md:w-2/3 p-5 h-[900px]">
+      <div className="flex-2 w-full md:w-2/3 p-5 h-[600px]">
         <table className="w-full">
           <thead>
             <tr className="bg-gray-100 border-b border-gray-300">
