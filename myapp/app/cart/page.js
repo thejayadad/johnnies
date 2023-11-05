@@ -5,6 +5,8 @@ import { reset } from '@/redux/cartSlice';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { loadStripe } from '@stripe/stripe-js'
+
 
 
 const Cart = () => {
@@ -17,6 +19,14 @@ const Cart = () => {
       return total + item.price * item.quantity;
     }, 0);
   };
+
+  const handleCheckout = async () => {
+    const lineItems = cart.products.map((item) => {
+      return {
+
+      }
+    })
+  }
   return (
     <div className="container mx-auto p-5 flex">
       <div className="flex-2 w-full md:w-2/3 p-5 h-[600px]">
@@ -71,7 +81,9 @@ const Cart = () => {
           <div className="text-sm">
             <b>Total:</b> ${calculateTotal().toFixed(2)}
           </div>
-          <button className="w-full bg-red-500 text-white font-bold py-2 mt-4">
+          <button 
+          
+          className="w-full bg-red-500 text-white font-bold py-2 mt-4">
             CHECKOUT NOW!
           </button>
         </div>
